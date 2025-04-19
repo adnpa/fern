@@ -1,4 +1,4 @@
-package fern
+package main
 
 import (
 	"fmt"
@@ -18,7 +18,7 @@ func init() {
 	rootCmd.AddCommand(proto.ProtoCmd)
 }
 
-func Execute() {
+func main() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
