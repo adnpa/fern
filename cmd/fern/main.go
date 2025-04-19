@@ -1,8 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"os"
+	"log"
 
 	"github.com/adnpa/fern/cmd/fern/proto"
 	"github.com/spf13/cobra"
@@ -20,7 +19,6 @@ func init() {
 
 func main() {
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		log.Fatal(err)
 	}
 }
