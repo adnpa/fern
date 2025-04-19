@@ -1,10 +1,10 @@
-package cmd
+package fern
 
 import (
 	"fmt"
 	"os"
 
-	"github.com/adnpa/fern/cmd/proto"
+	"github.com/adnpa/fern/cmd/fern/proto"
 	"github.com/spf13/cobra"
 )
 
