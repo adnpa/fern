@@ -19,7 +19,7 @@ func Test_config_Load(t *testing.T) {
 		c       config.Config
 		wantErr bool
 	}{
-		{name: "json file", c: config.NewConfig(config.WithSource(file.NewSource("../../test_data/config/test.json")))},
+		{name: "json file", c: config.NewConfig(config.WithSource(file.NewSource("./test.json")))},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
