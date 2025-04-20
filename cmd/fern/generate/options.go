@@ -11,6 +11,22 @@ import (
 	"strings"
 )
 
+// var (
+// 	optCmd = &cobra.Command{
+// 		Use:   "gen [opt]",
+// 		Short: "Generate a new options file template",
+// 		Long:  `Generate a new options file template.`,
+// 		Args:  cobra.ArbitraryArgs(),
+// 		Run: func(cmd *cobra.Command, args []string) {
+// 			// GenerateOption()
+// 		}
+// 	}
+// )
+
+// func init() {
+// 	GenCmd.AddCommand(optCmd)
+// }
+
 func GenerateOption() {
 	// 解析源文件
 	fset := token.NewFileSet()
