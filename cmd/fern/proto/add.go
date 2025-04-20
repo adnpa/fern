@@ -24,6 +24,11 @@ var (
 		Args:  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			filePath := args[0]
+
+			if err := os.MkdirAll(filepath.Dir(filePath), 0755); err != nil {
+				log.Fatal(err)
+			}
+
 			// 准备模板数据
 			serviceName := strings.TrimSuffix(filepath.Base(filePath), ".proto")
 			data := TemplateData{
@@ -31,7 +36,7 @@ var (
 				ServiceName: serviceName,
 			}
 			// 模板编译
-			tmpl, err := template.ParseFiles("templates/proto.tpl")
+			tmpl, err := template.New("proto").Parse(PROTO_TMPL)
 			if err != nil {
 				log.Fatal(err)
 			}
@@ -42,6 +47,11 @@ var (
 			} else {
 				fullpath = filePath
 			}
+
+			if err := os.MkdirAll(filepath.Dir(fullpath), 0755); err != nil {
+				log.Fatal(err)
+			}
+
 			file, err := os.Create(fullpath)
 			if err != nil {
 				log.Fatal(err)
